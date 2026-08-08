@@ -1,217 +1,31 @@
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  font-family: Georgia, "Times New Roman", serif;
-  background:
-    radial-gradient(circle at 50% 75%, #ff4f9a 0%, #e51d72 32%, #980044 70%, #4d002b 100%);
-  position: relative;
-  color: #8f164b;
-}
-
-.background-glow {
-  position: fixed;
-  inset: -20%;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,.18), transparent 18%),
-    radial-gradient(circle at 80% 30%, rgba(255,150,220,.16), transparent 20%),
-    radial-gradient(circle at 50% 90%, rgba(255,255,255,.12), transparent 25%);
-  filter: blur(8px);
-}
-
-.card-wrap {
-  position: relative;
-  z-index: 5;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  pointer-events: none;
-}
-
-.card {
-  width: min(680px, 90vw);
-  padding: 76px 42px 52px;
-  text-align: center;
-  border-radius: 28px;
-  background: rgba(255, 239, 247, 0.94);
-  border: 2px solid rgba(255,255,255,.75);
-  box-shadow:
-    0 24px 70px rgba(75, 0, 40, .42),
-    0 0 45px rgba(255, 145, 205, .38);
-  position: relative;
-  animation: cardIn 1.2s cubic-bezier(.2,.8,.2,1) both;
-}
-
-.heart-badge {
-  position: absolute;
-  top: -48px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 94px;
-  height: 94px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: white;
-  font-size: 48px;
-  background: linear-gradient(145deg, #ff5c9d, #df164f);
-  border: 5px solid rgba(255,255,255,.85);
-  box-shadow: 0 10px 28px rgba(145, 0, 70, .4);
-}
-
-h1 {
-  margin: 0 0 18px;
-  font-size: clamp(38px, 7vw, 66px);
-  line-height: 1.05;
-  font-style: italic;
-  font-weight: 700;
-  color: #c01757;
-  text-shadow: 0 2px 0 rgba(255,255,255,.8);
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 0 auto 28px;
-  width: min(430px, 80%);
-  color: #ee4e8d;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  height: 2px;
-  flex: 1;
-  background: linear-gradient(90deg, transparent, #f06b9e);
-}
-
-.divider::after {
-  background: linear-gradient(90deg, #f06b9e, transparent);
-}
-
-.divider span {
-  font-size: 22px;
-}
-
-p {
-  margin: 0;
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  font-size: clamp(19px, 3.2vw, 28px);
-  line-height: 1.55;
-  color: #64132f;
-}
-
-.flourish {
-  margin-top: 30px;
-  font-size: 28px;
-  color: #e95c95;
-  letter-spacing: 12px;
-}
-
-#hearts {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.floating-heart {
-  position: absolute;
-  bottom: -70px;
-  user-select: none;
-  will-change: transform, opacity;
-  filter: drop-shadow(0 5px 8px rgba(90, 0, 50, .25));
-  animation: floatUp linear forwards;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(.75);
-    opacity: 0;
-  }
-  8% {
-    opacity: .95;
-  }
-  50% {
-    transform: translate3d(var(--drift), -55vh, 0) rotate(var(--rotate)) scale(1);
-    opacity: .9;
-  }
-  100% {
-    transform: translate3d(calc(var(--drift) * -0.7), -125vh, 0) rotate(calc(var(--rotate) * -1)) scale(1.12);
-    opacity: 0;
-  }
-}
-
-.more-hearts {
-  position: fixed;
-  z-index: 10;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
-  border: 1px solid rgba(255,255,255,.7);
-  border-radius: 999px;
-  padding: 12px 20px;
-  background: rgba(255,255,255,.18);
-  color: white;
-  backdrop-filter: blur(10px);
-  font: 600 15px/1 "Trebuchet MS", Arial, sans-serif;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(60,0,35,.25);
-}
-
-.more-hearts:hover {
-  background: rgba(255,255,255,.3);
-}
-
-@keyframes cardIn {
-  from {
-    opacity: 0;
-    transform: translateY(35px) scale(.94);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (max-width: 600px) {
-  .card {
-    padding: 62px 22px 38px;
-    border-radius: 22px;
-  }
-
-  .heart-badge {
-    width: 78px;
-    height: 78px;
-    top: -39px;
-    font-size: 40px;
-  }
-
-  .flourish {
-    font-size: 22px;
-    letter-spacing: 7px;
-  }
-
-  .more-hearts {
-    bottom: 14px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .floating-heart,
-  .card {
-    animation-duration: .01ms !important;
-  }
-}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%}
+body{min-height:100vh;overflow:hidden;font-family:Georgia,"Times New Roman",serif;color:white;background:radial-gradient(circle at 50% 65%,#ff4f9a 0%,#e51d72 32%,#980044 70%,#4d002b 100%)}
+.glow{position:fixed;inset:-20%;pointer-events:none;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.18),transparent 18%),radial-gradient(circle at 80% 30%,rgba(255,150,220,.16),transparent 20%),radial-gradient(circle at 50% 90%,rgba(255,255,255,.12),transparent 25%);filter:blur(10px)}
+.page{position:relative;z-index:5;min-height:100vh;display:grid;place-items:center;padding:24px}
+.bell-area{text-align:center;animation:fadeIn 1s ease both}
+.hint{margin:0 0 24px;font:600 18px/1.4 "Trebuchet MS",Arial,sans-serif;text-shadow:0 3px 12px rgba(70,0,35,.4)}
+.bell-button{position:relative;width:150px;height:150px;border:3px solid rgba(255,255,255,.75);border-radius:50%;cursor:pointer;background:linear-gradient(145deg,#ff6aa5,#d91355);box-shadow:0 18px 45px rgba(60,0,35,.4),0 0 35px rgba(255,140,205,.5);transition:transform .2s ease,box-shadow .2s ease}
+.bell{display:inline-block;font-size:76px;line-height:1;filter:drop-shadow(0 6px 8px rgba(80,0,35,.25));animation:ring 2s ease-in-out infinite}
+.bell-button:hover{transform:scale(1.07)}
+.bell-button:active{transform:scale(.94)}
+.notification-dot{position:absolute;top:17px;right:19px;width:25px;height:25px;border-radius:50%;background:#fff;border:4px solid #e22a6c;box-shadow:0 0 15px rgba(255,255,255,.9)}
+.click-text{margin:24px 0 0;font:500 16px/1.4 "Trebuchet MS",Arial,sans-serif;opacity:.9}
+.card{position:relative;width:min(680px,90vw);padding:76px 42px 45px;text-align:center;border-radius:28px;background:rgba(255,239,247,.96);border:2px solid rgba(255,255,255,.8);color:#8f164b;box-shadow:0 24px 70px rgba(75,0,40,.5),0 0 50px rgba(255,145,205,.4);animation:cardIn .9s cubic-bezier(.2,.8,.2,1) both}
+.card.hidden{display:none}
+.heart-badge{position:absolute;top:-48px;left:50%;transform:translateX(-50%);width:94px;height:94px;border-radius:50%;display:grid;place-items:center;color:white;font-size:48px;background:linear-gradient(145deg,#ff5c9d,#df164f);border:5px solid rgba(255,255,255,.85);box-shadow:0 10px 28px rgba(145,0,70,.4)}
+h1{margin:0 0 18px;font-size:clamp(38px,7vw,66px);line-height:1.05;font-style:italic;color:#c01757}
+.divider{display:flex;align-items:center;gap:16px;margin:0 auto 28px;width:min(430px,80%);color:#ee4e8d}
+.divider::before,.divider::after{content:"";height:2px;flex:1;background:linear-gradient(90deg,transparent,#f06b9e)}
+.divider::after{background:linear-gradient(90deg,#f06b9e,transparent)}
+.divider span{font-size:22px}
+.card p{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;font-size:clamp(19px,3.2vw,28px);line-height:1.55;color:#64132f}
+.flourish{margin-top:30px;font-size:28px;color:#e95c95;letter-spacing:12px}
+.close-button{margin-top:28px;padding:10px 18px;border:0;border-radius:999px;cursor:pointer;background:#d91b61;color:white;font:600 14px "Trebuchet MS",Arial,sans-serif}
+#hearts{position:fixed;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.floating-heart{position:absolute;bottom:-70px;user-select:none;will-change:transform,opacity;filter:drop-shadow(0 5px 8px rgba(90,0,50,.25));animation:floatUp linear forwards}
+@keyframes floatUp{0%{transform:translate3d(0,0,0) rotate(0deg) scale(.7);opacity:0}8%{opacity:.95}50%{transform:translate3d(var(--drift),-55vh,0) rotate(var(--rotate)) scale(1);opacity:.9}100%{transform:translate3d(calc(var(--drift)*-.7),-125vh,0) rotate(calc(var(--rotate)*-1)) scale(1.12);opacity:0}}
+@keyframes ring{0%,45%,100%{transform:rotate(0)}8%{transform:rotate(16deg)}16%{transform:rotate(-16deg)}24%{transform:rotate(10deg)}32%{transform:rotate(-10deg)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cardIn{from{opacity:0;transform:scale(.8) translateY(35px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@media(max-width:600px){.bell-button{width:125px;height:125px}.bell{font-size:62px}.card{padding:62px 22px 38px;border-radius:22px}.heart-badge{width:78px;height:78px;top:-39px;font-size:40px}}
